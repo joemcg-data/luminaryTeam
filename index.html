@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luminary Planning — 19-Expert AI Review Framework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inconsolata:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #f5f1e8;
+    --bg-elev:      #ebe6d8;
+    --ink:          #1a1a1a;
+    --ink-soft:     #4a4a47;
+    --ink-mute:     #8a867d;
+    --rule:         rgba(26,26,26,0.14);
+    --accent:       #ff6200;
+    --accent-hi:    #ff8534;
+    --accent-lo:    #c94a00;
+    --secondary:    #ffd4a8;
+    --secondary-ink:#6b2e00;
+
+    --app-bg:       #0e0e0e;
+    --app-panel:    #131313;
+    --app-elev:     #1a1a1a;
+    --app-rule:     #2a2a2a;
+    --app-rule-2:   #3a3a3a;
+    --app-text:     #e0e0e0;
+    --app-mute:     #808080;
+    --app-dim:      #505050;
+    --app-green:    #3fb068;
+    --app-blue:     #4a9ee0;
+    --app-yellow:   #d4a017;
+    --app-purple:   #c678dd;
+    --app-cyan:     #56b6c2;
+    --app-red:      #e05a4a;
+    --app-focus:    #66809b;
+
+    --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body:    'Inter', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+    --font-code:    'Inconsolata', ui-monospace, 'SF Mono', Menlo, monospace;
+    --nav-h: 65px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: var(--nav-h);
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 200;
+  }
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.025em;
+  }
+  .wordmark span {
+    font-family: var(--font-code);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-mute);
+    letter-spacing: 0;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--accent-hi) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    padding: 100px 48px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .overline {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(48px, 9.5vw, 120px);
+    line-height: 0.93;
+    letter-spacing: -0.04em;
+    margin-bottom: 36px;
+    max-width: 13ch;
+  }
+  h1 .accent { color: var(--accent); }
+  .lede {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 40px;
+    max-width: 640px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent-hi); }
+  .btn-secondary {
+    background: var(--secondary);
+    color: var(--secondary-ink);
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { opacity: 0.85; }
+
+  /* STATS */
+  .stats-row {
+    display: flex;
+    gap: 64px;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat .num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+  .stat .num em { color: var(--accent); font-style: normal; }
+  .stat .label {
+    font-size: 13px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* HOW IT WORKS */
+  .section {
+    padding: 80px 48px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(30px, 3.8vw, 50px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  h2 .accent { color: var(--accent); }
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 48px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .phase-card {
+    background: var(--bg);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .phase-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--bg-elev);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+  .phase-label {
+    font-family: var(--font-code);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .phase-card h3 { margin-bottom: 10px; }
+  .phase-card p { font-size: 15px; color: var(--ink-soft); }
+
+  /* PRIORITY LEVELS */
+  .priority-section {
+    background: var(--app-bg);
+    padding: 80px 48px;
+  }
+  .priority-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .priority-section .overline { color: var(--app-mute); }
+  .priority-section h2 { color: var(--app-text); }
+  .priority-section .section-lede {
+    color: var(--app-mute);
+    font-size: 18px;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+  .priority-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--app-rule);
+    border: 1px solid var(--app-rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .priority-card {
+    background: var(--app-elev);
+    padding: 28px 24px;
+    border-top: 3px solid transparent;
+  }
+  .priority-card.p0 { border-top-color: var(--app-red); }
+  .priority-card.p1 { border-top-color: var(--app-yellow); }
+  .priority-card.p2 { border-top-color: var(--app-blue); }
+  .priority-card.p3 { border-top-color: var(--app-green); }
+  .p-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-code);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+  }
+  .p0 .p-badge { background: rgba(224,90,74,0.15); color: var(--app-red); }
+  .p1 .p-badge { background: rgba(212,160,23,0.15); color: var(--app-yellow); }
+  .p2 .p-badge { background: rgba(74,158,224,0.15); color: var(--app-blue); }
+  .p3 .p-badge { background: rgba(63,176,104,0.15); color: var(--app-green); }
+  .priority-card h3 { color: var(--app-text); margin-bottom: 8px; }
+  .priority-card p { font-size: 14px; color: var(--app-mute); line-height: 1.5; }
+
+  /* ROSTER */
+  .roster-section { padding: 80px 48px; max-width: 1440px; margin: 0 auto; }
+  .section-lede {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin-bottom: 48px;
+    line-height: 1.55;
+  }
+  .domain-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .filter-btn {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--rule);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .agent-card {
+    background: var(--bg);
+    padding: 24px 24px 20px;
+    transition: background 0.15s;
+    cursor: default;
+  }
+  .agent-card:hover { background: var(--bg-elev); }
+  .agent-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .agent-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .domain-tag {
+    font-family: var(--font-code);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .domain-arch  { background: rgba(255,98,0,0.1);   color: var(--accent-lo); }
+  .domain-perf  { background: rgba(74,158,224,0.1); color: #2a7bb5; }
+  .domain-dx    { background: rgba(63,176,104,0.1); color: #1a7a42; }
+  .domain-api   { background: rgba(198,120,221,0.1); color: #8a30aa; }
+  .domain-ux    { background: rgba(86,182,194,0.1); color: #1a7a82; }
+  .domain-ui    { background: rgba(212,160,23,0.1); color: #8a6000; }
+  .domain-data  { background: rgba(74,158,224,0.1); color: #2a7bb5; }
+  .domain-dist  { background: rgba(224,90,74,0.1);  color: #b53020; }
+  .domain-ddd   { background: rgba(198,120,221,0.1); color: #8a30aa; }
+  .domain-prod  { background: rgba(255,98,0,0.1);   color: var(--accent-lo); }
+  .domain-qa    { background: rgba(63,176,104,0.1); color: #1a7a42; }
+  .domain-sec   { background: rgba(224,90,74,0.1);  color: #b53020; }
+  .domain-ai    { background: rgba(86,182,194,0.1); color: #1a7a82; }
+  .domain-infra { background: rgba(74,158,224,0.1); color: #2a7bb5; }
+  .domain-a11y  { background: rgba(63,176,104,0.1); color: #1a7a42; }
+  .domain-priv  { background: rgba(198,120,221,0.1); color: #8a30aa; }
+  .domain-viz   { background: rgba(212,160,23,0.1); color: #8a6000; }
+  .domain-ds    { background: rgba(86,182,194,0.1); color: #1a7a82; }
+  .domain-stats { background: rgba(255,98,0,0.1);   color: var(--accent-lo); }
+  .agent-domain {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+  }
+  .agent-focus {
+    font-size: 13px;
+    color: var(--ink-mute);
+    line-height: 1.5;
+  }
+  .agent-redflag {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--app-red);
+    font-family: var(--font-code);
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .agent-card:hover .agent-redflag { opacity: 1; }
+  .redflag-label {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    color: var(--app-red);
+  }
+
+  /* USAGE */
+  .usage-section {
+    background: var(--bg-elev);
+    padding: 80px 48px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .usage-inner { max-width: 1440px; margin: 0 auto; }
+  .usage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .usage-card {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 32px 28px;
+  }
+  .usage-letter {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .usage-card h3 { margin-bottom: 10px; }
+  .usage-card p { font-size: 15px; color: var(--ink-soft); margin-bottom: 16px; }
+  .code-block {
+    background: var(--app-bg);
+    border: 1px solid var(--app-rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-family: var(--font-code);
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--app-text);
+  }
+  .code-block .k { color: var(--app-blue); }
+  .code-block .v { color: var(--app-green); }
+  .code-block .c { color: var(--app-dim); }
+  .code-block .e { color: var(--accent); }
+
+  /* RULES */
+  .rules-section { padding: 80px 48px; max-width: 1440px; margin: 0 auto; }
+  .rules-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .rule-item {
+    background: var(--bg);
+    padding: 24px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .rule-icon {
+    font-family: var(--font-code);
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-weight: 700;
+  }
+  .rule-item h3 { font-size: 17px; margin-bottom: 4px; }
+  .rule-item p { font-size: 14px; color: var(--ink-soft); }
+
+  /* CONFLICTS */
+  .conflicts-section {
+    background: var(--app-bg);
+    padding: 80px 48px;
+  }
+  .conflicts-inner { max-width: 1440px; margin: 0 auto; }
+  .conflicts-section .overline { color: var(--app-mute); }
+  .conflicts-section h2 { color: var(--app-text); }
+  .conflicts-section .section-lede { color: var(--app-mute); margin-bottom: 48px; }
+  .conflicts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2px;
+    background: var(--app-rule);
+    border: 1px solid var(--app-rule);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .conflict-card {
+    background: var(--app-elev);
+    padding: 24px;
+  }
+  .vs-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .vs-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--app-text);
+  }
+  .vs-badge {
+    font-family: var(--font-code);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 3px 7px;
+    border-radius: 3px;
+    background: rgba(255,98,0,0.15);
+    color: var(--accent-hi);
+    flex-shrink: 0;
+  }
+  .conflict-card p { font-size: 13px; color: var(--app-mute); line-height: 1.5; }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .footer-note {
+    font-size: 13px;
+    color: var(--ink-mute);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: var(--ink-mute);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-links a:hover { color: var(--ink); }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .topnav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 72px 24px 60px; }
+    .stats-row { gap: 40px; }
+    .section, .roster-section, .rules-section { padding: 60px 24px; }
+    .usage-section, .priority-section, .conflicts-section { padding: 60px 24px; }
+    .phases-grid { grid-template-columns: 1fr; }
+    .priority-grid { grid-template-columns: repeat(2, 1fr); }
+    .usage-grid { grid-template-columns: 1fr; }
+    .rules-list { grid-template-columns: 1fr; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 20px; align-items: flex-start; }
+  }
+  @media (max-width: 600px) {
+    h1 { font-size: clamp(40px, 12vw, 72px); }
+    .priority-grid { grid-template-columns: 1fr; }
+    .agents-grid { grid-template-columns: 1fr; }
+    .footer-links { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a class="wordmark" href="#">
+    Luminary
+    <span>v1.0 · 19 agents</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#roster">Roster</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="https://github.com/ckluis/luminaryTeam" class="nav-cta">GitHub</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="overline">Multi-Agent Technical Review Framework</p>
+  <h1>19 experts.<br><span class="accent">One audit.</span><br>No mercy.</h1>
+  <p class="lede">Drop in your codebase, spec, or architecture decision. Get a structured adversarial review from 19 domain experts — each independent, each opinionated, each synthesized into actionable recommendations.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/ckluis/luminaryTeam" class="btn-primary">Get the Prompts →</a>
+    <a href="#how-it-works" class="btn-secondary">See how it works</a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="num"><em>19</em></div>
+      <div class="label">Domain experts</div>
+    </div>
+    <div class="stat">
+      <div class="num"><em>6</em></div>
+      <div class="label">Protocol phases</div>
+    </div>
+    <div class="stat">
+      <div class="num"><em>4</em></div>
+      <div class="label">Priority levels</div>
+    </div>
+    <div class="stat">
+      <div class="num"><em>0</em></div>
+      <div class="label">Silent passes allowed</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how-it-works">
+  <p class="overline">Protocol</p>
+  <h2>Six phases.<br><span class="accent">No shortcuts.</span></h2>
+  <div class="phases-grid">
+    <div class="phase-card">
+      <span class="phase-num">01</span>
+      <span class="phase-label">Phase 1</span>
+      <h3>Frame &amp; Scope</h3>
+      <p>The orchestrator summarizes the input, selects the relevant roster subset, and defines what "done" looks like — before any audit begins.</p>
+    </div>
+    <div class="phase-card">
+      <span class="phase-num">02</span>
+      <span class="phase-label">Phase 2</span>
+      <h3>Independent Audit</h3>
+      <p>Each member audits from their domain lens alone. No cross-member coordination. No groupthink. No "I agree with the previous comment."</p>
+    </div>
+    <div class="phase-card">
+      <span class="phase-num">03</span>
+      <span class="phase-label">Phase 3</span>
+      <h3>Red Flag Declaration</h3>
+      <p>One blocking red flag per member, maximum. Forced prioritization. Every claim must cite a specific artifact — code, spec, or design doc.</p>
+    </div>
+    <div class="phase-card">
+      <span class="phase-num">04</span>
+      <span class="phase-label">Phase 4</span>
+      <h3>Adversarial Clash</h3>
+      <p>Members with conflicting positions debate directly. The steelman rule is enforced: you argue the opponent's position charitably before any rebuttal. Skipping disqualifies the rebuttal.</p>
+    </div>
+    <div class="phase-card">
+      <span class="phase-num">05</span>
+      <span class="phase-label">Phase 5</span>
+      <h3>Synthesis</h3>
+      <p>The orchestrator resolves conflicts into a structured recommendation matrix. Every recommendation gets a clear owner and a verification path.</p>
+    </div>
+    <div class="phase-card">
+      <span class="phase-num">06</span>
+      <span class="phase-label">Phase 6</span>
+      <h3>Iteration</h3>
+      <p>Drill in on any finding. Request re-audits on specific members. Ask the team to respond to new information or implementation decisions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIORITY LEVELS -->
+<section class="priority-section">
+  <div class="priority-inner">
+    <p class="overline">Priority Framework</p>
+    <h2 style="color:var(--app-text)">Every finding gets<br><span style="color:var(--accent)">a clear level.</span></h2>
+    <p class="section-lede">Luminary doesn't produce a flat list of concerns. Every finding is classified by severity so you know exactly what to fix now vs. what to track for later.</p>
+    <div class="priority-grid">
+      <div class="priority-card p0">
+        <span class="p-badge">P0 · BLOCKER</span>
+        <h3>Stop Everything</h3>
+        <p>Unsafe, incorrect, or irreversible. Work does not proceed until this is resolved. No exceptions, no deferral.</p>
+      </div>
+      <div class="priority-card p1">
+        <span class="p-badge">P1 · CRITICAL</span>
+        <h3>Significant Risk</h3>
+        <p>Deferral requires orchestrator approval and a documented rationale. The risk stays on the table — not buried.</p>
+      </div>
+      <div class="priority-card p2">
+        <span class="p-badge">P2 · IMPORTANT</span>
+        <h3>Quality Gain</h3>
+        <p>Meaningful robustness or quality improvement. Defer to the next phase with a tracked ticket and an owner.</p>
+      </div>
+      <div class="priority-card p3">
+        <span class="p-badge">P3 · IMPROVEMENT</span>
+        <h3>Future Work</h3>
+        <p>Non-blocking enhancement. Goes in the backlog. Doesn't delay the current work, but doesn't disappear either.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROSTER -->
+<section class="roster-section" id="roster">
+  <p class="overline">The Team</p>
+  <h2>19 experts.<br><span class="accent">Every domain covered.</span></h2>
+  <p class="section-lede">Each agent brings a defined domain, a distinct personality, explicit conflict vectors, and a signature challenge question. You don't need all 19 — select the subset that covers your highest-risk areas.</p>
+
+  <div class="domain-filter">
+    <button class="filter-btn active" onclick="filterAgents('all', this)">All 19</button>
+    <button class="filter-btn" onclick="filterAgents('systems', this)">Systems</button>
+    <button class="filter-btn" onclick="filterAgents('product', this)">Product</button>
+    <button class="filter-btn" onclick="filterAgents('data', this)">Data</button>
+    <button class="filter-btn" onclick="filterAgents('safety', this)">Safety</button>
+  </div>
+
+  <div class="agents-grid" id="agentsGrid">
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">Linus Torvalds</div>
+        <span class="domain-tag domain-arch">Arch</span>
+      </div>
+      <div class="agent-domain">Architecture &amp; Maintainability</div>
+      <div class="agent-focus">Modularity, justified complexity. Despises premature generalization and framework-driven development.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Premature generalization — abstraction layer with no current second user</div>
+    </div>
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">John Carmack</div>
+        <span class="domain-tag domain-perf">Perf</span>
+      </div>
+      <div class="agent-domain">Performance &amp; Optimization</div>
+      <div class="agent-focus">Hot paths, memory layout, O(n) analysis. Demands benchmarks, not intuitions. Respects simplicity that actually performs.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> O(n²) in hot paths or "fast enough" without supporting data</div>
+    </div>
+    <div class="agent-card" data-group="product">
+      <div class="agent-header">
+        <div class="agent-name">Grace Jansen</div>
+        <span class="domain-tag domain-dx">DX</span>
+      </div>
+      <div class="agent-domain">Developer Experience &amp; Tooling</div>
+      <div class="agent-focus">Onboarding ergonomics, readable code, docs that don't require tribal knowledge. Useful error messages.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> "Ask Sarah" documentation — knowledge not in the repo</div>
+    </div>
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">Arnauld Lauret</div>
+        <span class="domain-tag domain-api">API</span>
+      </div>
+      <div class="agent-domain">API Design &amp; Governance</div>
+      <div class="agent-focus">Interface consistency, naming coherence, RFC correctness, leaky abstraction detection. Consumer-first thinking.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Inconsistent naming or implicit contracts between endpoints</div>
+    </div>
+    <div class="agent-card" data-group="product">
+      <div class="agent-header">
+        <div class="agent-name">Don Norman</div>
+        <span class="domain-tag domain-ux">UX</span>
+      </div>
+      <div class="agent-domain">UX &amp; Interaction Design</div>
+      <div class="agent-focus">User mental models, affordance, feedback loops. Exposes when "features" are actually usability traps.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Error states with no recovery path or actions with no undo</div>
+    </div>
+    <div class="agent-card" data-group="product">
+      <div class="agent-header">
+        <div class="agent-name">Julie Zhuo</div>
+        <span class="domain-tag domain-ui">UI</span>
+      </div>
+      <div class="agent-domain">UI &amp; Visual Design Systems</div>
+      <div class="agent-focus">Visual hierarchy, component consistency, design token discipline. Flags pixel-level and systemic inconsistencies.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Similar-looking components that behave differently</div>
+    </div>
+    <div class="agent-card" data-group="data">
+      <div class="agent-header">
+        <div class="agent-name">Joe Celko</div>
+        <span class="domain-tag domain-data">SQL</span>
+      </div>
+      <div class="agent-domain">SQL &amp; Data Modeling</div>
+      <div class="agent-focus">Schema correctness, normalization, NULL semantics. Treats the data model as the foundation everything else inherits from.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Tables without primary keys or NULLs with business meaning</div>
+    </div>
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">Martin Kleppmann</div>
+        <span class="domain-tag domain-dist">Dist</span>
+      </div>
+      <div class="agent-domain">Distributed Systems &amp; Data</div>
+      <div class="agent-focus">Event sourcing, consistency guarantees, replication lag, idempotency. Distributed complexity is irreducible — simplifying hides it.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> "Exactly-once" semantics claimed without idempotency proof</div>
+    </div>
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">Eric Evans</div>
+        <span class="domain-tag domain-ddd">DDD</span>
+      </div>
+      <div class="agent-domain">Domain Modeling &amp; DDD</div>
+      <div class="agent-focus">Bounded contexts, ubiquitous language, aggregate design. Code vocabulary must match domain expert language exactly.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Anemic domain models or primitive obsession masking domain concepts</div>
+    </div>
+    <div class="agent-card" data-group="product">
+      <div class="agent-header">
+        <div class="agent-name">Steve Jobs</div>
+        <span class="domain-tag domain-prod">Prod</span>
+      </div>
+      <div class="agent-domain">Product Quality &amp; Customer Experience</div>
+      <div class="agent-focus">Whether it's genuinely great — not feature-complete, but inevitable. Contemptuous of engineering convenience over customer experience.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Abstraction the customer can see; compromise disguised as pragmatism</div>
+    </div>
+    <div class="agent-card" data-group="safety">
+      <div class="agent-header">
+        <div class="agent-name">James Bach</div>
+        <span class="domain-tag domain-qa">QA</span>
+      </div>
+      <div class="agent-domain">Testing &amp; QA Strategy</div>
+      <div class="agent-focus">Whether tests find real bugs — not coverage metrics or CI green. Distinguishes checking (automated) from testing (skilled investigation).</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> High coverage but catches nothing; testing the mock not the behavior</div>
+    </div>
+    <div class="agent-card" data-group="safety">
+      <div class="agent-header">
+        <div class="agent-name">Bruce Schneier</div>
+        <span class="domain-tag domain-sec">Sec</span>
+      </div>
+      <div class="agent-domain">Security &amp; Threat Modeling</div>
+      <div class="agent-focus">Crypto correctness, auth/authz, secrets management. Quiet, methodical, devastating. Reduces security theater to actual threat models.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Auth logic not reviewed first; secrets in logs or URLs</div>
+    </div>
+    <div class="agent-card" data-group="systems">
+      <div class="agent-header">
+        <div class="agent-name">Andrej Karpathy</div>
+        <span class="domain-tag domain-ai">AI/ML</span>
+      </div>
+      <div class="agent-domain">AI/ML &amp; LLM Integration</div>
+      <div class="agent-focus">LLM integration correctness, prompt injection, model evaluation rigor, hallucination failure modes. Demands benchmarks over intuitions.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> LLM features with no evals; user input in prompts without injection analysis</div>
+    </div>
+    <div class="agent-card" data-group="safety">
+      <div class="agent-header">
+        <div class="agent-name">Charity Majors</div>
+        <span class="domain-tag domain-infra">Infra</span>
+      </div>
+      <div class="agent-domain">Infrastructure &amp; Observability</div>
+      <div class="agent-focus">Deployment pipelines, structured telemetry, SLOs, incident debuggability. Will not accept "we'll add logging later."</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> No structured instrumentation; "we'll know if it breaks because users tell us"</div>
+    </div>
+    <div class="agent-card" data-group="safety">
+      <div class="agent-header">
+        <div class="agent-name">Marcy Sutton</div>
+        <span class="domain-tag domain-a11y">A11y</span>
+      </div>
+      <div class="agent-domain">Accessibility &amp; Inclusive Engineering</div>
+      <div class="agent-focus">WCAG compliance, keyboard navigation, screen reader semantics. Treats accessibility regressions as bugs. Will open a screen reader and audit live.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Interactive components with no keyboard spec or color as sole state differentiator</div>
+    </div>
+    <div class="agent-card" data-group="safety">
+      <div class="agent-header">
+        <div class="agent-name">Ann Cavoukian</div>
+        <span class="domain-tag domain-priv">Privacy</span>
+      </div>
+      <div class="agent-domain">Privacy &amp; Data Governance</div>
+      <div class="agent-focus">Privacy by Design — not bolted on after. Data minimization, purpose limitation, PII handling. Audits against her own seven Privacy by Design principles.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Collection without documented retention/deletion policy; PII in logs</div>
+    </div>
+    <div class="agent-card" data-group="data">
+      <div class="agent-header">
+        <div class="agent-name">Edward Tufte</div>
+        <span class="domain-tag domain-viz">Viz</span>
+      </div>
+      <div class="agent-domain">Data Visualization &amp; Information Design</div>
+      <div class="agent-focus">Data-ink ratio, chartjunk elimination, information density. Withering on aesthetic flourish that reduces information density.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Pie charts for more than 2 categories; dual-axis implying false correlation</div>
+    </div>
+    <div class="agent-card" data-group="data">
+      <div class="agent-header">
+        <div class="agent-name">Hadley Wickham</div>
+        <span class="domain-tag domain-ds">Data Sci</span>
+      </div>
+      <div class="agent-domain">Data Science &amp; Analytics Pipelines</div>
+      <div class="agent-focus">Tidy data principles, grammar of graphics, pipeline reproducibility and legibility. Testable and extensible pipelines.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> Transformations that can't be unit-tested; data that changes shape mid-pipeline</div>
+    </div>
+    <div class="agent-card" data-group="data">
+      <div class="agent-header">
+        <div class="agent-name">Andrew Gelman</div>
+        <span class="domain-tag domain-stats">Stats</span>
+      </div>
+      <div class="agent-domain">Statistical Rigor &amp; Inference</div>
+      <div class="agent-focus">Metrics measuring what they claim, A/B test power, false positive rates. Quietly devastating about overconfident inference.</div>
+      <div class="agent-redflag"><span class="redflag-label">⚑</span> "Significant" without power analysis; metrics with no confidence interval</div>
+    </div>
+  </div>
+</section>
+
+<!-- USAGE -->
+<section class="usage-section" id="usage">
+  <div class="usage-inner">
+    <p class="overline">How to Use It</p>
+    <h2>Three ways to<br><span class="accent">run the team.</span></h2>
+    <div class="usage-grid">
+      <div class="usage-card">
+        <div class="usage-letter">A</div>
+        <h3>Full Team Audit</h3>
+        <p>Paste <code style="font-family:var(--font-code);font-size:0.87em;color:var(--accent-lo)">luminaryPrompt.md</code> into a Claude project or any LLM with a large context window. Include your codebase, spec, or architecture doc. The orchestrator selects the relevant subset and runs the full six-phase protocol.</p>
+        <div class="code-block">
+          <span class="c"># In your Claude project:</span><br>
+          <span class="k">System:</span> <span class="v">[paste luminaryPrompt.md]</span><br>
+          <span class="k">User:</span>   <span class="v">[paste your codebase / spec]</span><br>
+          <span class="e">→ Full 19-member adversarial audit</span>
+        </div>
+      </div>
+      <div class="usage-card">
+        <div class="usage-letter">B</div>
+        <h3>Single Agent</h3>
+        <p>Load a specific <code style="font-family:var(--font-code);font-size:0.87em;color:var(--accent-lo)">agent*.md</code> file for a focused single-domain review. Useful when you know the problem domain but want structured, rigorous feedback from that specific lens.</p>
+        <div class="code-block">
+          <span class="c"># Example: security-only review</span><br>
+          <span class="k">System:</span> <span class="v">[paste agentBruceSchneier.md]</span><br>
+          <span class="k">User:</span>   <span class="v">[paste your auth code]</span><br>
+          <span class="e">→ Deep single-domain audit</span>
+        </div>
+      </div>
+      <div class="usage-card">
+        <div class="usage-letter">C</div>
+        <h3>Custom Roster</h3>
+        <p>Select 3–7 agents whose domains cover your highest-risk areas. Paste <code style="font-family:var(--font-code);font-size:0.87em;color:var(--accent-lo)">luminaryPrompt.md</code> plus the selected agent files. Specify which members to use in your first message.</p>
+        <div class="code-block">
+          <span class="c"># Example: API launch review</span><br>
+          <span class="k">System:</span> <span class="v">[luminaryPrompt + 5 agents]</span><br>
+          <span class="k">User:</span>   <span class="e">"Use only Lauret, Schneier,</span><br>
+          <span class="e">         Celko, Kleppmann, Bach"</span><br>
+          <span class="e">→ Focused multi-domain audit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="rules-section" id="rules">
+  <p class="overline">Protocol Rules</p>
+  <h2>The rules that make<br><span class="accent">it actually work.</span></h2>
+  <p class="section-lede">Luminary's value comes from enforced constraints. These aren't suggestions — they're the structural guarantees that prevent a 19-expert system from collapsing into noise.</p>
+  <div class="rules-list">
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>Cite or Retract</h3>
+        <p>Any claim without a specific artifact reference — code line, spec section, design doc — is inadmissible. Impressions don't count.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>Steelman Enforced</h3>
+        <p>In adversarial clash, you must argue the opponent's position charitably and completely before your rebuttal. Skipping it disqualifies the rebuttal entirely.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>One Red Flag Maximum</h3>
+        <p>Each member gets one blocking red flag per audit cycle. Forced prioritization. If everything is critical, nothing is.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>No Silent Pass</h3>
+        <p>"Nothing to report" is not acceptable. Clean domains still probe edge cases. The absence of findings must be earned.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>Orchestrator Stays Neutral</h3>
+        <p>The orchestrator mediates process and resolves deadlock, but never takes domain positions. Domain authority belongs to the members.</p>
+      </div>
+    </div>
+    <div class="rule-item">
+      <div class="rule-icon">→</div>
+      <div>
+        <h3>Synthesis Is Actionable</h3>
+        <p>Every recommendation in the synthesis gets a clear owner and a verification path. "Consider improving X" is not a recommendation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFLICTS -->
+<section class="conflicts-section">
+  <div class="conflicts-inner">
+    <p class="overline">Known Conflicts</p>
+    <h2 style="color:var(--app-text)">Built-in tensions.<br><span style="color:var(--accent)">Real trade-offs.</span></h2>
+    <p class="section-lede" style="color:var(--app-mute)">Some members reliably clash. These tensions are features, not bugs — they surface trade-offs your team might otherwise paper over.</p>
+    <div class="conflicts-grid">
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Carmack</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Evans</span>
+        </div>
+        <p>Performance optimization vs. domain model purity. Carmack wants the hot path flat and cache-friendly. Evans wants the aggregate boundary to mean something. Both are right.</p>
+      </div>
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Jobs</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Bach</span>
+        </div>
+        <p>Ship great things fast vs. prove nothing is broken first. Jobs sees testing overhead as the enemy of inevitable. Bach sees "ship fast" as the enemy of actually knowing what you shipped.</p>
+      </div>
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Kleppmann</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Torvalds</span>
+        </div>
+        <p>Embrace distributed complexity vs. keep it simple and modular. Kleppmann says the complexity is inherent — hiding it is dishonest. Torvalds says you introduced it and you can remove it.</p>
+      </div>
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Schneier</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Karpathy</span>
+        </div>
+        <p>Deterministic threat models vs. probabilistic LLM failure modes. Schneier wants a threat model with defined adversaries. Karpathy is working with systems where failure modes are empirical, not categorical.</p>
+      </div>
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Cavoukian</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Majors</span>
+        </div>
+        <p>Data minimization vs. instrument everything. Cavoukian says collect only what you need and delete it on schedule. Majors says you can't debug what you didn't log. The overlap is small.</p>
+      </div>
+      <div class="conflict-card">
+        <div class="vs-row">
+          <span class="vs-name">Norman</span>
+          <span class="vs-badge">vs</span>
+          <span class="vs-name">Torvalds</span>
+        </div>
+        <p>User experience as first-class vs. user experience as cosmetic. Norman wants the mental model baked into the architecture. Torvalds thinks the interface should reflect the real complexity, not hide it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Luminary Planning</div>
+  <div class="footer-note">19 experts. One audit. No mercy.</div>
+  <div class="footer-links">
+    <a href="https://github.com/ckluis/luminaryTeam">GitHub</a>
+    <a href="https://github.com/ckluis/luminaryTeam/blob/main/luminaryPrompt.md">Orchestrator Prompt</a>
+    <a href="#roster">Full Roster</a>
+  </div>
+</footer>
+
+<script>
+  function filterAgents(group, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.agent-card').forEach(card => {
+      if (group === 'all' || card.dataset.group === group) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
